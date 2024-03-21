@@ -1,0 +1,36 @@
+REM Wallpaper changer for people who left their device unmonitored
+
+REM Open windows powershell
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 500
+
+REM Download and set punishment
+STRING Invoke-WebRequest -Uri <to be added> -OutFile "c:\temp\punishi.jpg"
+ENTER
+DELAY 1000
+STRING reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d  C:\temp\punishi.jpg /f
+ENTER
+DELAY 500
+STRING exit
+ENTER
+
+REM Open windows cmd
+DELAY 1000
+GUI r
+DELAY 500
+STRING cmd
+DELAY 500
+ENTER
+DELAY 500
+
+REM Change wallpaper
+STRING RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+ENTER
+DELAY 500
+STRING exit
+ENTER
