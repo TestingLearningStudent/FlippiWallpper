@@ -31,6 +31,6 @@ DELAY 500
 REM Change wallpaper
 STRING RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 ENTER
-DELAY 500
+DELAY 1500
 STRING exit
 ENTER
