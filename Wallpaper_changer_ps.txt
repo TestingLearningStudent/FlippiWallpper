@@ -16,7 +16,7 @@ DELAY 1000
 STRING reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d  C:\temp\punishi.jpg /f
 ENTER
 DELAY 500
-STRING RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+STRING RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters, 1
 ENTER
 DELAY 500
 STRING exit
