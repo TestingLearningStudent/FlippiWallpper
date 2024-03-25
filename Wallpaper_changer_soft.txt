@@ -1,0 +1,25 @@
+REM Wallpaper changer for people who left their device unmonitored. Only Powershell
+
+REM Open windows powershell
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 1000
+
+REM Download and set punishment
+STRING Invoke-WebRequest -Uri https://github.com/TestingLearningStudent/FlippiWallpper/blob/main/NoLock.jpg?raw=true -OutFile "c:\temp\punishi.jpg"
+ENTER
+DELAY 1000
+STRING mspaint C:\temp\punishi.jpg; exit
+ENTER
+DELAY 200
+GUI r
+DELAY 500
+STRING notepad
+DELAY 500
+ENTER
+DELAY 1000
+STRING 1st and last warning!
